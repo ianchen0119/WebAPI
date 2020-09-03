@@ -1,30 +1,13 @@
-import { Database } from "https://deno.land/x/denodb/mod.ts";
-import { User } from "./models/User.ts";
+import { MongoClient } from "https://deno.land/x/mongo@v0.11.1/mod.ts";
 
 export class DatabaseController {
-  client: Database;
-
-	/**
-   * Initialise database client
-   */
+  private client;
   constructor() {
-    this.client = new Database('mongo', {
-        uri: 'mongodb://127.0.0.1:27017',
-        database: 'test',
-      });
-  }
-
-  /**
-   * Initialise models
-   */
-  async initModels() {
-    this.client.link([]);
-    await this.client.sync({});
+    this.client = new MongoClient();
+    this.client.connectWithUri("mongodb://localhost:27017");
   }
 
   initModels() {
-    // Add User here
-    this.client.link([User]);
-    return this.client.sync({});
+  return this.client.database('test');
 }
 }
