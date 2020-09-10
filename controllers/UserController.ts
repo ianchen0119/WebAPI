@@ -4,7 +4,6 @@ const collection = dataBase.collection("data");
 
 export class userController {
   findOne(props:any){
-    console.log(props);
     return collection.findOne({"name":`${props}`});
   }
   insertData(props:any){

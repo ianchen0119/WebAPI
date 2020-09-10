@@ -1,7 +1,6 @@
 import { Router, Status, RouterContext  } from "https://deno.land/x/oak/mod.ts";
 import { userController } from "../controllers/UserController.ts";
 const controller = new userController();
-console.log(controller)
 export function UserRoutes(router: Router) {
   return router
     .get("/user/:id", async (ctx: RouterContext) => {
