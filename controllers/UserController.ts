@@ -1,5 +1,5 @@
-import { DatabaseController } from "./Database.ts";
-const dataBase = await new DatabaseController().initModels();
+import { DatabaseController } from "./models/Database.ts";
+const dataBase = await new DatabaseController().initModels("test");
 const collection = dataBase.collection("data");
 
 export class userController {

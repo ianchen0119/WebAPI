@@ -6,8 +6,7 @@ export class DatabaseController {
     this.client = new MongoClient();
     this.client.connectWithUri("mongodb://localhost:27017");
   }
-
-  initModels() {
-  return this.client.database('test');
+  initModels(database) {
+  return this.client.database(database);
 }
 }
